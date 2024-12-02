@@ -26,8 +26,8 @@ def seq_with_beginning():
     sequences = protgpt2(f'<|endoftext|>{beginning}', max_length=maxlen, do_sample=True, top_k=100, top_p=0.9,
                          repetition_penalty=1.2, num_return_sequences=1, eos_token_id=0)
 
-    return render_template('index_with_output.html', my_output=sequences[0])
-    # return render_template('index_with_output.html', my_output = sequences[0]['generated_text'][13:])
+    # return render_template('index_with_output.html', my_output=sequences[0])
+    return render_template('index_with_output.html', my_output = sequences[0]['generated_text'][13:])
 
 if __name__ == '__main__':
     application.run(host= "0.0.0.0", port=5000)
