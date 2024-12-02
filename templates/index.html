@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link
+      href="{{ url_for('static', filename='style.css') }}"
+      rel="stylesheet"
+    />
+    <title>CS218 Final Project</title>
+  </head>
+
+  <body>
+    <div class="container">
+
+      <article>
+        <header class="post-header">
+          <h2>Toxin-Antitoxin protein sequence generator</h2>
+          <p id="author">
+            CS218 Final Project: Finished by <strong>Lifan Zeng</strong> on Monday, December 2nd 2024
+          </p>
+          <img
+            src="{{url_for('static', filename='post-img.jpg')}}"
+            width="500"
+            height="190"
+            class="post-img"
+          />
+        </header>
+
+        <ul>
+          <li>
+            <a href="https://www.nature.com/articles/s41467-022-32007-7">ProtGPT2: A protein sequence generator</a>
+          </li>
+          <li>
+            <a href="https://huggingface.co/Lifan-Z/protGPT2_5/tree/main">The fine-tuned model</a>
+          </li>
+          <li>
+            <a href="https://huggingface.co/datasets/Lifan-Z/tox-antitox-proteins">The training dataset</a>
+          </li>
+        </ul>
+
+        <form action="/seq" method="post">
+          <p class="label_beginning">
+            <label for="beginning"><strong>Begin with: </strong></label>
+            <input type="text" id="beginning" name="beginning">
+          </p>
+          <p class="label_max_length">
+            <label for="max_length"><strong>MaxLength: </strong></label>
+            <input type="text" id="max_length" name="max_length">
+          </p>
+          <p class="text_area">
+            <textarea rows="6" cols="105"> {% block content %}{% endblock %}</textarea>
+          </p>
+          <p class="submit_button">
+            <input type="submit" value="Submit" >
+          </p>
+        </form>
+
+
+      <footer>
+        <p>
+          Copyright &copy; 2024 by Lifan Zeng
+        </p>
+      </footer>
+    </div>
+  </body>
+</html>
